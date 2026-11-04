@@ -4,7 +4,9 @@ import TaskList from './components/TaskList';
 import logo from "./assets/logo.png";// <-- Import your new logo
 import './App.css';
 
-const API_URL = 'http://localhost:5000/api/tasks';
+const API_URL = import.meta.env.PROD 
+  ? 'https://task-manager-backend-t8lq.onrender.com/api/tasks' 
+  : 'http://localhost:5000/api/tasks';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
